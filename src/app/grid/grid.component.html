@@ -1,0 +1,46 @@
+<div class="main-grid">
+    <div class="card">
+        <kendo-grid [resizable]="true" [data]="gridView" [height]="400" [filter]="filter" [groupable]="true" filterable="menu" [pageSize]="state.take" [skip]="state.skip" [sort]="state.sort" [group]="state.group" [sortable]="{ mode:'multiple' }" [pageable]="{
+        buttonCount: 3,
+        info: true,
+        pageSizes:[100, 500, 1000],
+        previousNext: true,
+        type: 'numeric'
+    }" (dataStateChange)="dataStateChange($event)" class="task-grid">
+            <kendo-grid-column field="albumId" title="Album Id" width="100">
+                <ng-template kendoGridFilterMenuTemplate let-column="column" let-filter="filter" let-filterService="filterService">
+                </ng-template>
+            </kendo-grid-column>
+            <kendo-grid-column field="id" title="Id" width="120" [style]="{'color': '#155cb4','text-decoration':'underline','font-weight':'bold'}">
+                <ng-template kendoGridFilterMenuTemplate let-column="column" let-filter="filter" let-filterService="filterService">
+                </ng-template>
+            </kendo-grid-column>
+            <kendo-grid-column field="title" title="Title" width="120">
+                <ng-template kendoGridFilterMenuTemplate let-column="column" let-filter="filter" let-filterService="filterService">
+                </ng-template>
+            </kendo-grid-column>
+            <kendo-grid-column field="url" title="Url" width="150">
+         
+                    <ng-template kendoGridCellTemplate let-dataItem>
+                        <img src="{{dataItem.url}}" 
+                                height="40" width="40" style="border-radius:30px;" alt="Patient Image"/>                    
+                        </ng-template>
+              
+            </kendo-grid-column>
+            <kendo-grid-column field="thumbnailUrl" title="Thumbnail Url" width="150">
+                <ng-template kendoGridCellTemplate let-dataItem>
+                    <img src="{{dataItem.thumbnailUrl}}" 
+                            height="40" width="40" style="border-radius:30px;" alt="Patient Image"/>                    
+                    </ng-template>
+            </kendo-grid-column>
+
+            <kendo-grid-command-column width="80" title="Action">
+                <ng-template kendoGridCellTemplate let-dataItem>
+                    <a class="actionButton" kendoGridEditCommand [primary]="true" (click)='deleteItems(dataItem.id,dataItem.albumId)'></a>
+                  </ng-template>
+            </kendo-grid-command-column>
+
+        </kendo-grid>
+
+    </div>
+</div>
