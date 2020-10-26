@@ -1,3 +1,11 @@
+I have used Kendo UI with for the grid where we can display ,filter, sort, group and pagination.
+Also added a functionality to delete the data.
+
+Pulling data from the api using rxjs.
+
+
+
+
 # Table
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.7.
